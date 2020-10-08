@@ -10,5 +10,4 @@ public class Main {
             partida.fazerJogada(tabuleiro);
         }
     }
-    //Tomate
 }

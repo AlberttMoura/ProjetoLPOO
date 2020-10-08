@@ -9,7 +9,6 @@ public class Tabuleiro {
     public void preencherTabuleiro(int pos, int id){
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
             if(gameArray[linha][pos] == 0){
-                System.out.println("Abacate");
                 gameArray[linha][pos] = id;
                 break;
             }

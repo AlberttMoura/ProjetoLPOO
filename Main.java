@@ -10,4 +10,9 @@ public class Main {
             partida.fazerJogada(tabuleiro);
         }
     }
+<<<<<<< HEAD
+=======
+    //Tomate
+    //Abacate
+>>>>>>> 283115a8173c8a1b9e03f05cf1eb76fcca68d131
 }

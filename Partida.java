@@ -17,17 +17,11 @@ public class Partida {
         jogAtual = jog1;//Inicia o jogador atual como o 1
     }
 
-    //Pega a jogada dos jogadores
-    public int pegarJogada(){
-        Scanner pos = new Scanner(System.in);
-        return pos.nextInt();
-    }
 
     //Faz as jogadas dos jogadores
-    public void fazerJogada(Tabuleiro tabuleiro)
+    public void fazerJogada(int pos, Tabuleiro tabuleiro)
     {
         System.out.print("\nJogador "+ jogAtual.getId() + ", sua vez!");
-        int pos = pegarJogada() - 1;
         exibirJogada(pos);
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)

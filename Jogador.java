@@ -7,7 +7,7 @@ public class Jogador extends Pessoa {
     //CONSTRUCTOR
     public Jogador(String nome, int id)
     {
-        this.setNome(nome);
+        super(nome);
         this.id = id;
     }
 

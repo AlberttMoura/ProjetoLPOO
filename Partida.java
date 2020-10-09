@@ -1,7 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
-import java.util.Scanner;
-
 public class Partida {
     boolean acabou;//Status da partida
     boolean vencedor;//Índica se há vencedor

@@ -1,5 +1,3 @@
-import javax.sound.midi.Soundbank;
-
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 public class Tabuleiro {
     private final int[][] gameArray;

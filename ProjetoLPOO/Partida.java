@@ -1,4 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+package ProjetoLPOO;
 
 public class Partida {
     boolean acabou;//Status da partida
@@ -7,7 +8,7 @@ public class Partida {
     Jogador jog2;
     Jogador jogAtual;//Jogador atual
     Tabuleiro tabuleiro;
-    int cont = 0;//Contador de jogadas. Inicando no 1
+    int cont = 0;//Contador de jogadas. Inicando no 0(Partida de exibição)
 
     public Partida(Jogador jogador1, Jogador jogador2, Tabuleiro tab)
     {

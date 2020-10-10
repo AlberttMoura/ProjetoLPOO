@@ -1,4 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+package ProjetoLPOO;
 
 public class Partida {
     boolean acabou;//Status da partida

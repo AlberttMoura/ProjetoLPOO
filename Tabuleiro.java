@@ -1,3 +1,5 @@
+import javax.sound.midi.Soundbank;
+
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 public class Tabuleiro {
     private final int[][] gameArray;
@@ -25,5 +27,6 @@ public class Tabuleiro {
             }
             System.out.print("|\n");
         }
+        System.out.println("=1=2=3=4=5=6=7=");
     }
 }

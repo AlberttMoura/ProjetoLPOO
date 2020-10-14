@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream:Tabuleiro.java
-=======
-//ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-package ProjetoLPOO;
-
-//abacate
->>>>>>> Stashed changes:ProjetoLPOO/Tabuleiro.java
 public class Tabuleiro {
     private final int[][] gameArray;
 

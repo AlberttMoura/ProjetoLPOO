@@ -1,4 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+package ProjetoLPOO;
 
 public class Jogador extends Pessoa {
     private final int id;//Número de identificação do Jogador
@@ -7,7 +8,7 @@ public class Jogador extends Pessoa {
     //CONSTRUCTOR
     public Jogador(String nome, int id)
     {
-        this.setNome(nome);
+        super(nome);
         this.id = id;
     }
 

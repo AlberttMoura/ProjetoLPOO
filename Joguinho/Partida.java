@@ -26,7 +26,7 @@ public class Partida {
     public void fazerJogada(int pos)
     {
         //validando as jogadas, o jogador jogará novamente caso a jogada seja inválida ou a coluna esteja preenchida
-        while(validaJogada(pos) == -1 && tabuleiro.verificarColuna(pos) == -1)
+        while(validaJogada(pos) == -1 || tabuleiro.verificarColuna(pos) == -1)
         {
             System.out.println("Jogada invalida ou coluna cheia, favor tentar novamente ");
             pos = leitor.nextInt();

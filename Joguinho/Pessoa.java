@@ -1,6 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
-package br.com.poli;
+package Joguinho;
 public class Pessoa {
     private String nome;
 

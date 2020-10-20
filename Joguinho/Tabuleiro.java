@@ -1,5 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-package ProjetoLPOO;
+package Joguinho;
 
 public class Tabuleiro {
     private final int[][] gameArray;

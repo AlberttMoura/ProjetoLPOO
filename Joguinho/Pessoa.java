@@ -1,4 +1,4 @@
-package ProjetoLPOO;
+package Joguinho;
 public class Pessoa {
     private String nome;
 

@@ -25,4 +25,9 @@ public class Jogador extends Pessoa {
     public void setScore(int score){
         this.score = score;
     }
+
+    @Override
+    public String toString(){
+        return ("O nome do jogador é " + this.getNome());
+    }
 }

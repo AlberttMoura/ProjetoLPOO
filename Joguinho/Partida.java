@@ -24,11 +24,11 @@ public class Partida {
     {
         //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
         if(cont !=0){
-            System.out.println("O jogador " + jogAtual.getId() + " jogou na coluna " + (pos + 1) + "\n");
+            System.out.println("O jogador " + jogAtual + " jogou na coluna " + (pos + 1) + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
             alternarJogador();
         }
-        System.out.println("\nJogador "+ jogAtual.getId() + ", sua vez!");
+        System.out.println("\nJogador "+ jogAtual + ", sua vez!");
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)
         {

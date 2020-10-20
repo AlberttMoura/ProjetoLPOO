@@ -1,5 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-package Joguinho;
+
+package br.com.poli;
 
 public class Partida {
     boolean acabou;//Status da partida

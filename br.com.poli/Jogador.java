@@ -1,5 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-package Joguinho;
+
+package br.com.poli;
 
 public class Jogador extends Pessoa {
     private final int id;//Número de identificação do Jogador

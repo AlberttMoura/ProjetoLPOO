@@ -1,4 +1,6 @@
-package Joguinho;
+//ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+
+package br.com.poli;
 public class Pessoa {
     private String nome;
 

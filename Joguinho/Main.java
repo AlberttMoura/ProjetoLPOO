@@ -18,5 +18,6 @@ public class Main {
             partida.fazerJogada(x);
             x = pos.nextInt() - 1;
         }
+        pos.close();
     }
 }

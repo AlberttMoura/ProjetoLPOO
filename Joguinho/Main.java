@@ -1,6 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+
 package Joguinho;
-//ABACATE
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class Main {
         while(!partida.acabou)
         {
             partida.fazerJogada(x);
-            x = pos.nextInt() - 1;
+            x = pos.nextInt();
         }
     }
 }

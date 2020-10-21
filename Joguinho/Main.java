@@ -18,5 +18,8 @@ public class Main {
             partida.fazerJogada(x);
             x = pos.nextInt();
         }
+        pos.close();
+        //ABACATE
+        //TOMATE
     }
 }

@@ -1,4 +1,5 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
+
 package Joguinho;
 
 public class Jogador extends Pessoa {
@@ -24,5 +25,10 @@ public class Jogador extends Pessoa {
     //SETTERS
     public void setScore(int score){
         this.score = score;
+    }
+
+    @Override
+    public String toString(){
+        return ("O nome do jogador é " + this.getNome());
     }
 }

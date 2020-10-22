@@ -8,8 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Jogador jog1 = new Jogador("Auberto", 1);
         Jogador jog2 = new Jogador("Frenanda", 2);
-        Tabuleiro tabuleiro = new Tabuleiro();
-        Partida partida = new Partida(jog1, jog2, tabuleiro);
+        Partida partida = new Partida(jog1, jog2);
         Scanner pos = new Scanner(System.in);
         int x = 0;
         //tabuleiro.desenharTabuleiro();

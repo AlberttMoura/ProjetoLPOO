@@ -13,12 +13,12 @@ public class Partida {
     int cont = 0;//Contador de jogadas. Inicando no 0(Partida de exibição)
     Scanner leitor = new Scanner(System.in);
 
-    public Partida(Jogador jogador1, Jogador jogador2, Tabuleiro tab)
+    public Partida(Jogador jogador1, Jogador jogador2)
     {
         jog1 = jogador1;
         jog2 = jogador2;
         jogAtual = jog1;//Inicia o jogador atual como o 1
-        tabuleiro = tab;
+        tabuleiro = new Tabuleiro();
     }
     
 
@@ -36,11 +36,11 @@ public class Partida {
         //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
         if(cont !=0)
         {
-            System.out.println("O jogador " + jogAtual + " jogou na coluna " + pos + "\n");
+            System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
             alternarJogador();
         }
-        System.out.println("\nJogador "+ jogAtual + ", sua vez!");
+        System.out.println("\n" + jogAtual + ", sua vez!");
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)
         {

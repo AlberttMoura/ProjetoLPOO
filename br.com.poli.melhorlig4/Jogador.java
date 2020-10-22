@@ -29,6 +29,6 @@ public class Jogador extends Pessoa {
 
     @Override
     public String toString(){
-        return ("O nome do jogador é " + this.getNome());
+        return ("Jogador " + this.id + " - " + super.toString());
     }
 }

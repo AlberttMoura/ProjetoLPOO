@@ -1,6 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
-package Joguinho;
+package br.com.poli.melhorlig4;
 import java.util.Scanner;
 
 public class Partida {
@@ -66,5 +66,10 @@ public class Partida {
         }
         return 1;
         
+    }
+
+    public boolean jogadaDaVitoria()
+    {
+
     }
 }

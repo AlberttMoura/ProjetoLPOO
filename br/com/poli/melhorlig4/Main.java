@@ -1,6 +1,6 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
-package Joguinho;
+package br.com.poli.melhorlig4;
 
 import java.util.Scanner;
 
@@ -19,5 +19,7 @@ public class Main {
             partida.fazerJogada(x);
             x = pos.nextInt();
         }
+
+        pos.close();
     }
 }

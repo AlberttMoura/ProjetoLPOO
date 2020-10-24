@@ -5,6 +5,7 @@ package Joguinho;
 import java.util.Scanner;
 
 public class Main {
+    //algo
     public static void main(String[] args) {
         Jogador jog1 = new Jogador("Auberto", 1);
         Jogador jog2 = new Jogador("Frenanda", 2);

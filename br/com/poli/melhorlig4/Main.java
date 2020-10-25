@@ -4,7 +4,7 @@ package br.com.poli.melhorlig4;
 
 import java.util.Scanner;
 //Abacate
-
+//Cenoura
 public class Main {
     public static void main(String[] args) {
         Jogador jog1 = new Jogador("Auberto", 1);

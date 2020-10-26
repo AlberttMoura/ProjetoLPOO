@@ -49,7 +49,7 @@ public class Tabuleiro {
     }
 
     //Verificar Vitória
-    public boolean verificarVitoria(int pos, Jogador jogadorAtual){
+    public boolean verificarVitoria(Jogador jogadorAtual){
         for(int linha = 0; linha < gameArray.length; linha++){
             for(int coluna = 0; coluna < gameArray[0].length; coluna++){
                 //Horizontal

@@ -46,13 +46,13 @@ public class Partida {
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)
         {
-            System.out.println("Fim de jogo");
+            System.out.println("Empate!");
             acabou = true;
         }
         tabuleiro.desenharTabuleiro();
         if(acabou){
             alternarJogador();
-            System.out.println("JOGADOR " + jogAtual.getId() + " VENCEU! ACABOU, SAI DAQUI, DESGRAÇA!");
+            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.");
             return;
         }
         cont++;

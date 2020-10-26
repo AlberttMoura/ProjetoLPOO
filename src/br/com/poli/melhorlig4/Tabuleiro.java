@@ -60,6 +60,7 @@ public class Tabuleiro {
                             contx++;
                         } else {
                             contx = 0;
+                            break;
                         }
                     }
                 }
@@ -71,17 +72,19 @@ public class Tabuleiro {
                             conty++;
                         } else {
                             conty = 0;
+                            break;
                         }
                     }
                 }
                 //DiagonalSup
                 int contxySup = 1;
-                if(linha < gameArray.length - 4 && coluna < gameArray[0].length -4) {
+                if(linha < gameArray.length - 4 && coluna < gameArray[0].length - 4) {
                     for (int i = 1; i < 4; i++) {
                         if (gameArray[linha + i][coluna + i] == jogadorAtual.getId()) {
                             contxySup++;
                         } else {
                             contxySup = 0;
+                            break;
                         }
                     }
                 }
@@ -93,6 +96,7 @@ public class Tabuleiro {
                             contxyInf++;
                         } else {
                             contxyInf = 0;
+                            break;
                         }
                     }
                 }

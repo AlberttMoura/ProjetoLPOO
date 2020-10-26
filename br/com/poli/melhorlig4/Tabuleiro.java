@@ -5,6 +5,7 @@ package br.com.poli.melhorlig4;
 public class Tabuleiro {
     private final int[][] gameArray;
     private int yPos=0;
+    private int valor=3;
 //testestes
     public Tabuleiro(){
         gameArray = new int[6][7];//Define as dimensões da natriz do Tabuleiro
@@ -28,7 +29,7 @@ public class Tabuleiro {
     public void desenharTabuleiro(){
         for(int linha = 0; linha < gameArray.length; linha++){
             for(int coluna = 0; coluna < gameArray[0].length; coluna++){
-                System.out.print("|" + (gameArray[linha][coluna] == 0 ? " " : gameArray[linha][coluna]));
+                System.out.print("|" + gameArray[linha][coluna] );
             }
             System.out.println("|");
         }
@@ -47,4 +48,19 @@ public class Tabuleiro {
         }
         return -1;
     }
+
+    public int valorCasa(int x, int y)
+    {
+        for(int linha = gameArray.length-1; linha>= y;linha--)
+        {
+            for(int coluna = gameArray[0].length-1; coluna>= x;coluna--)
+            {
+                valor = gameArray[linha][coluna];
+            }
+        }
+
+        return valor;
+    }
+
+
 }

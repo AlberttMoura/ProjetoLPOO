@@ -47,4 +47,60 @@ public class Tabuleiro {
         }
         return -1;
     }
+
+    //Verificar Vitória
+    public boolean verificarVitoria(int pos, Jogador jogadorAtual){
+        for(int linha = 0; linha < gameArray.length; linha++){
+            for(int coluna = 0; coluna < gameArray[0].length; coluna++){
+                //Horizontal
+                int contx = 1;
+                if(coluna < gameArray[0].length - 4) {
+                    for (int i = 1; i < 4; i++) {
+                        if (gameArray[linha][coluna + i] == 1) {
+                            contx++;
+                        } else {
+                            contx = 0;
+                        }
+                    }
+                }
+                //Vertical
+                int conty = 1;
+                if(linha  < gameArray.length - 4) {
+                    for (int i = 1; i < 4; i++) {
+                        if (gameArray[linha + i][coluna] == jogadorAtual.getId()) {
+                            conty++;
+                        } else {
+                            conty = 0;
+                        }
+                    }
+                }
+                //DiagonalSup
+                int contxySup = 1;
+                if(linha < gameArray.length - 4 && coluna < gameArray[0].length -4) {
+                    for (int i = 1; i < 4; i++) {
+                        if (gameArray[linha + i][coluna + i] == jogadorAtual.getId()) {
+                            contxySup++;
+                        } else {
+                            contxySup = 0;
+                        }
+                    }
+                }
+                //DiagonalInf
+                int contxyInf = 1;
+                if(linha > 4 && coluna < gameArray[0].length - 4) {
+                    for (int i = 1; i < 4; i++) {
+                        if (gameArray[linha - i][coluna + i] == jogadorAtual.getId()) {
+                            contxyInf++;
+                        } else {
+                            contxyInf = 0;
+                        }
+                    }
+                }
+                if(contx == 4 || conty == 4 || contxySup == 4 || contxyInf == 4){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

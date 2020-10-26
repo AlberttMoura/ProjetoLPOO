@@ -38,9 +38,11 @@ public class Partida {
         {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
+            acabou = tabuleiro.verificarVitoria(pos, jogAtual);
             alternarJogador();
         }
         System.out.println("\n" + jogAtual + ", sua vez!");
+
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)
         {
@@ -48,6 +50,11 @@ public class Partida {
             acabou = true;
         }
         tabuleiro.desenharTabuleiro();
+        if(acabou){
+            alternarJogador();
+            System.out.println("JOGADOR " + jogAtual.getId() + " VENCEU! ACABOU, SAI DAQUI, DESGRAÇA!");
+            return;
+        }
         cont++;
     }
 

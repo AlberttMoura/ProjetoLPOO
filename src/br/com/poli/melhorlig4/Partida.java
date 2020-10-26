@@ -38,16 +38,23 @@ public class Partida {
         {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
+            acabou = tabuleiro.verificarVitoria(pos, jogAtual);
             alternarJogador();
         }
         System.out.println("\n" + jogAtual + ", sua vez!");
+
         //Caso o número máximo de casas seja alcançado
         if(cont == 42)
         {
-            System.out.println("Fim de jogo");
+            System.out.println("Empate!");
             acabou = true;
         }
         tabuleiro.desenharTabuleiro();
+        if(acabou){
+            alternarJogador();
+            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.");
+            return;
+        }
         cont++;
     }
 

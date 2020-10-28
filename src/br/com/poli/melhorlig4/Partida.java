@@ -41,7 +41,7 @@ public class Partida {
         {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
-            jogadaVencedora(pos);
+            acabou = tabuleiro.jogadaVencedora(jogAtual);
             alternarJogador();
         }
         System.out.println("\n" + jogAtual + ", sua vez!");
@@ -72,42 +72,6 @@ public class Partida {
         }
         return 1;
         
-    }
-
-    //Verifica se a jogada feita acarretou em vitoria
-    public void jogadaVencedora(int posX)
-    {
-        /*
-        int liga = 0; //numero de ligacoes feitas
-        //vitoria vertical
-        if(tabuleiro.getYpos()<=3)
-        {
-            for(int i = 1; i<4; i++)
-            {
-                if(tabuleiro.valorCasa(posX, tabuleiro.getYpos()+i) == jogAtual.getId())
-                {
-                    liga++;
-                    System.out.println("fiz algo");
-                }
-                else break;
-            }
-        if(liga == 3)
-        {
-            System.out.println(jogAtual.getNome() + " voce venceu!");
-            System.out.println("FIM DE JOGO");
-            acabou = true;
-        }*/
-
-        try
-        {
-            if(tabuleiro.valorCasa(posX, tabuleiro.getYpos()+1) == jogAtual.getId() && tabuleiro.valorCasa(posX, tabuleiro.getYpos()+2) == jogAtual.getId() && tabuleiro.valorCasa(posX, tabuleiro.getYpos()+3) == jogAtual.getId() && tabuleiro.valorCasa(posX, tabuleiro.getYpos()+4) == jogAtual.getId())
-            {
-                System.out.println("Voce venceu " + jogAtual.getNome());
-            }
-        }
-        catch(Exception e)
-        {
-        }
     }
 
 }

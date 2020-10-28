@@ -40,21 +40,21 @@ public class Partida {
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
             acabou = tabuleiro.verificarVitoria(jogAtual);
             alternarJogador();
+            //Caso o número máximo de casas seja alcançado
+            if(cont == 42)
+            {
+                System.out.println("Empate!");
+                acabou = true;
+            }
         }
-        System.out.println("\n" + jogAtual + ", sua vez!");
 
-        //Caso o número máximo de casas seja alcançado
-        if(cont == 42)
-        {
-            System.out.println("Empate!");
-            acabou = true;
-        }
         tabuleiro.desenharTabuleiro();
         if(acabou){
             alternarJogador();
             System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.");
             return;
         }
+        System.out.print("\n" + jogAtual + ", sua vez:");
         cont++;
     }
 

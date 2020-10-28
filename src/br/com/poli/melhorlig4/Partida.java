@@ -41,7 +41,7 @@ public class Partida {
         {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
-            acabou = tabuleiro.jogadaVencedora(jogAtual);
+            acabou = tabuleiro.verificarVitoria(jogAtual);
             alternarJogador();
         }
         System.out.println("\n" + jogAtual + ", sua vez!");

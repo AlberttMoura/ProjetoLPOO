@@ -87,7 +87,7 @@ public class Tabuleiro {
                 }
                 //DiagonalInf
                 int contxyInf = 0;
-                if(linha > 4 && coluna <= gameArray[0].length - 4) {
+                if(linha >= 4 && coluna <= gameArray[0].length - 4) {
                     for (int i = 0; i < 4; i++) {
                         if (gameArray[linha - i][coluna + i] == jogadorAtual.getId()) {
                             contxyInf++;

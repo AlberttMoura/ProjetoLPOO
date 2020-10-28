@@ -1,7 +1,10 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
 package br.com.poli.melhorlig4;
+
 import java.util.Scanner;
+
+
 
 public class Partida {
     boolean acabou;//Status da partida
@@ -32,7 +35,7 @@ public class Partida {
             pos = leitor.nextInt();
         }
 
-        System.out.println("y:" + (tabuleiro.getYpos()+1) + " x: " + pos);
+        System.out.println("y:" + (tabuleiro.getYpos()) + " x: " + pos);
         //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
         if(cont !=0)
         {
@@ -44,17 +47,13 @@ public class Partida {
         System.out.println("\n" + jogAtual + ", sua vez!");
 
         //Caso o número máximo de casas seja alcançado
+        //EMPATE
         if(cont == 42)
         {
-            System.out.println("Empate!");
+            System.out.println("Fim de jogo");
             acabou = true;
         }
         tabuleiro.desenharTabuleiro();
-        if(acabou){
-            alternarJogador();
-            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.");
-            return;
-        }
         cont++;
     }
 
@@ -74,4 +73,5 @@ public class Partida {
         return 1;
         
     }
+
 }

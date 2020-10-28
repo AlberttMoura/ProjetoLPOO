@@ -45,7 +45,6 @@ public class Partida {
             alternarJogador();
         }
         System.out.println("\n" + jogAtual + ", sua vez!");
-
         //Caso o número máximo de casas seja alcançado
         //EMPATE
         if(cont == 42)

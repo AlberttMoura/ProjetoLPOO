@@ -9,7 +9,6 @@ public class Main {
         Partida partida = new Partida(jog1, jog2);
         Scanner pos = new Scanner(System.in);
         int x = 0;
-        //tabuleiro.desenharTabuleiro();
         while(!partida.acabou)
         {
             partida.fazerJogada(x);

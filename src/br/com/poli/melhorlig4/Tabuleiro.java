@@ -5,7 +5,7 @@ package br.com.poli.melhorlig4;
 public class Tabuleiro {
     private final int[][] gameArray;
     private int yPos=0;
-    //testestes
+//testestes
     public Tabuleiro(){
         gameArray = new int[6][7];//Define as dimensões da natriz do Tabuleiro
     }
@@ -33,7 +33,7 @@ public class Tabuleiro {
             System.out.println("|");
         }
         System.out.println("=0=1=2=3=4=5=6=");
-
+    
     }
 
     //Verifica se a coluna esta completa
@@ -50,13 +50,14 @@ public class Tabuleiro {
 
     //Verificar Vitória
     public boolean verificarVitoria(Jogador jogadorAtual){
+        final int sequencia = 4;//QUANTIDADE DE PEÇAS DO MESMO JOGADOR NECESSÁRIA PARA VENCER
+
         for(int linha = 0; linha < gameArray.length; linha++){
             for(int coluna = 0; coluna < gameArray[0].length; coluna++){
-
                 //Horizontal
-                int contx = 1;
-                if(coluna < gameArray[0].length - 4) {
-                    for (int i = 1; i < 4; i++) {
+                int contx = 0;
+                if(coluna <= gameArray[0].length - sequencia) {
+                    for (int i = 0; i < sequencia; i++) {
                         if (gameArray[linha][coluna + i] == jogadorAtual.getId()) {
                             contx++;
                         } else {
@@ -65,9 +66,9 @@ public class Tabuleiro {
                     }
                 }
                 //Vertical
-                int conty = 1;
-                if(linha  < gameArray.length - 4) {
-                    for (int i = 1; i < 4; i++) {
+                int conty = 0;
+                if(linha  <= gameArray.length - sequencia) {
+                    for (int i = 0; i < sequencia; i++) {
                         if (gameArray[linha + i][coluna] == jogadorAtual.getId()) {
                             conty++;
                         } else {
@@ -76,9 +77,9 @@ public class Tabuleiro {
                     }
                 }
                 //DiagonalSup
-                int contxySup = 1;
-                if(linha < gameArray.length - 4 && coluna < gameArray[0].length - 4) {
-                    for (int i = 1; i < 4; i++) {
+                int contxySup = 0;
+                if(linha <= gameArray.length - sequencia && coluna <= gameArray[0].length - sequencia) {
+                    for (int i = 0; i < 4; i++) {
                         if (gameArray[linha + i][coluna + i] == jogadorAtual.getId()) {
                             contxySup++;
                         } else {
@@ -87,9 +88,9 @@ public class Tabuleiro {
                     }
                 }
                 //DiagonalInf
-                int contxyInf = 1;
-                if(linha > 4 && coluna < gameArray[0].length - 4) {
-                    for (int i = 1; i < 4; i++) {
+                int contxyInf = 0;
+                if(linha >= 4 && coluna <= gameArray[0].length - sequencia) {
+                    for (int i = 0; i < sequencia; i++) {
                         if (gameArray[linha - i][coluna + i] == jogadorAtual.getId()) {
                             contxyInf++;
                         } else {
@@ -97,9 +98,7 @@ public class Tabuleiro {
                         }
                     }
                 }
-                if(contx == 4 || conty == 4 || contxySup == 4 || contxyInf == 4){
-                    System.out.println("VENCEDOR: "+jogadorAtual);
-                    System.out.println("fim de jogo");
+                if(contx == sequencia || conty == sequencia || contxySup == sequencia || contxyInf == sequencia){
                     return true;
                 }
             }
@@ -107,4 +106,3 @@ public class Tabuleiro {
         return false;
     }
 }
-

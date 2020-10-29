@@ -6,7 +6,7 @@ public class Menu {
     Tabuleiro tabuleiro = new Tabuleiro();
     Partida partida = new Partida();
     boolean continuar = false;
-    int continuacao;
+    int continuacao=0;
     Scanner leitor = new Scanner(System.in);
 
     public Menu(Jogador jog1, Jogador jog2)

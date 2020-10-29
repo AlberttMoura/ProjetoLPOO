@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Partida {
     boolean acabou;//Status da partida
-    boolean vencedor;//Índica se há vencedor
+    boolean vencedor;//Indica se há vencedor
     Jogador jog1;
     Jogador jog2;
     Jogador jogAtual;//Jogador atual

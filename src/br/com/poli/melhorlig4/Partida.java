@@ -53,7 +53,7 @@ public class Partida {
         if(acabou){
             alternarJogador();
             System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\nPressione um numero para seguir");
-            tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
+            //tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
             return;
         }
         System.out.print("\n" + jogAtual + ", sua vez:");

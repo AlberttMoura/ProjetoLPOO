@@ -6,12 +6,12 @@ public class Main {
     public static void main(String[] args) {
         Jogador jog1 = new Jogador(1);
         Jogador jog2 = new Jogador(2);
-        Menu menu = new Menu(jog1, jog2);
         Partida partida = new Partida(jog1, jog2);
-
+        Menu menu = new Menu(jog1, jog2, partida);
         Scanner pos = new Scanner(System.in);
         int x = 0;
-        while(!menu.continuar){
+
+        while(menu.continuar){
             menu.menuDeJogadores();
             while(!partida.acabou)
             {
@@ -19,8 +19,6 @@ public class Main {
                 x = pos.nextInt();
             }
             menu.jogarNovamente();
-            partida.cont = 0;
-            partida.acabou = menu.continuar;
         }
         pos.close();
 

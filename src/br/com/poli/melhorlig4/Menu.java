@@ -1,28 +1,24 @@
 package br.com.poli.melhorlig4;
 import java.util.Scanner;
 public class Menu {
-    Jogador jog1;
-    Jogador jog2;
-    Tabuleiro tabuleiro = new Tabuleiro();
     Partida partida = new Partida();
-    boolean continuar = false;
+    boolean continuar = true;
     int continuacao=0;
     Scanner leitor = new Scanner(System.in);
 
-    public Menu(Jogador jog1, Jogador jog2)
+    public Menu(Jogador jog1, Jogador jog2, Partida partida)
     {
-        this.jog1 = jog1;
-        this.jog2 = jog2;
+        this.partida = partida;
     }
     public void menuDeJogadores()
     {
         System.out.println("Jogador 1- favor inserir seu nome: ");
-        jog1.setNome(leitor.next());
+        partida.jog1.setNome(leitor.next());
         System.out.println("Jogador 2 - favor inserir seu nome: ");
-        jog2.setNome(leitor.next());
+        partida.jog2.setNome(leitor.next());
     }
 
-    public boolean jogarNovamente()
+    public void jogarNovamente()
     {
 
         while(continuacao != 1 && continuacao != 2) {
@@ -30,9 +26,17 @@ public class Menu {
             System.out.println("| 2 (não) | 1 (sim) |");
             continuacao = leitor.nextInt();
         }
-        continuar = continuacao == 2;
-
-        return continuar;
+        if(continuacao == 2)
+        {
+            continuar = false;
+            partida.acabou = true;
+        }
+        else{
+            continuar = true;
+            partida.acabou = false;
+            partida.cont =0;
+            partida.tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
+        }
     }
 
 }

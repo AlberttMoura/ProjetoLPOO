@@ -5,7 +5,6 @@ package br.com.poli.melhorlig4;
 public class Tabuleiro {
     private final int[][] gameArray;
     private int yPos=0;
-//testestes
     public Tabuleiro(){
         gameArray = new int[6][7];//Define as dimensões da natriz do Tabuleiro
     }

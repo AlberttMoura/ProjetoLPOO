@@ -13,6 +13,7 @@ public class Partida {
     int cont = 0;//Contador de jogadas. Inicando no 0(Partida de exibição)
     Scanner leitor = new Scanner(System.in);
 
+    public Partida(){}
     public Partida(Jogador jogador1, Jogador jogador2)
     {
         jog1 = jogador1;
@@ -51,7 +52,9 @@ public class Partida {
         tabuleiro.desenharTabuleiro();
         if(acabou){
             alternarJogador();
-            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.");
+            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\naperte um numero para seguir");
+            tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
+
             return;
         }
         System.out.print("\n" + jogAtual + ", sua vez:");

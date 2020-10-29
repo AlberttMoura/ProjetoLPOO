@@ -35,6 +35,13 @@ public class Tabuleiro {
         System.out.println("=0=1=2=3=4=5=6=");
     
     }
+    //Zerar tabuleiro
+    public void zerarTabuleiro(){
+        for(int linha = gameArray.length - 1; linha >= 0; linha--){
+            for(int coluna = 5;coluna>=0;coluna--)
+            gameArray[linha][coluna] = 0;
+        }
+    }
 
     //Verifica se a coluna esta completa
     public int verificarColuna(int casa)

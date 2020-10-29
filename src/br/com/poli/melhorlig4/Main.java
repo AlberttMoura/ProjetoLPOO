@@ -12,7 +12,7 @@ public class Main {
         int x = 0;
 
         while(menu.continuar){
-            menu.menuDeJogadores();
+            menu.outroMenu();
             while(!partida.acabou)
             {
                 partida.fazerJogada(x);

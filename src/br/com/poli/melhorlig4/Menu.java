@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
     Partida partida = new Partida();
     boolean continuar = true;
-    int continuacao=0;
+    int continuacao;
     Scanner leitor = new Scanner(System.in);
 
     public Menu(Jogador jog1, Jogador jog2, Partida partida)
@@ -20,7 +20,7 @@ public class Menu {
 
     public void jogarNovamente()
     {
-
+        continuacao =0;
         while(continuacao != 1 && continuacao != 2) {
             System.out.println("Deseja jogar novamente?");
             System.out.println("| 2 (não) | 1 (sim) |");

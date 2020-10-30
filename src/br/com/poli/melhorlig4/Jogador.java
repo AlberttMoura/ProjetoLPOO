@@ -7,10 +7,6 @@ public class Jogador extends Pessoa {
     private int score;//Score do Jogador
 
     //CONSTRUCTORS
-    public Jogador (int id)
-    {
-        this.id = id;
-    }
     public Jogador(String nome, int id)
     {
         super(nome);

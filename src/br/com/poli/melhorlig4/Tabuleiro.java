@@ -4,8 +4,7 @@ package br.com.poli.melhorlig4;
 
 public class Tabuleiro {
     private final int[][] gameArray;
-    private int yPos=0;
-//testestes
+    private int yPos = 0;
     public Tabuleiro(){
         gameArray = new int[6][7];//Define as dimensões da natriz do Tabuleiro
     }
@@ -37,20 +36,21 @@ public class Tabuleiro {
     
     }
     //Zerar tabuleiro
-    public void zerarTabuleiro(){
+    //Projeto de método para um futuro distante
+    /*public void zerarTabuleiro(){
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
             for(int coluna = 5;coluna>=0;coluna--)
             gameArray[linha][coluna] = 0;
         }
-    }
+    }*/
 
-    //Verifica se a coluna esta completa
-    public int verificarColuna(int casa)
+    //Verifica se a coluna esta cheia
+    public int verificarColuna(int pos)
     {
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
-            if(gameArray[linha][casa] == 0){
+            if(gameArray[linha][pos] == 0){
                 yPos = linha;
-                return yPos;
+                return yPos;//Retorna a LINHA em que a peça do jogador ficou
             }
         }
         return -1;
@@ -60,9 +60,10 @@ public class Tabuleiro {
     public boolean verificarVitoria(Jogador jogadorAtual){
         final int sequencia = 4;//QUANTIDADE DE PEÇAS DO MESMO JOGADOR NECESSÁRIA PARA VENCER
 
+        //VERIFICA TODAS AS CASA, INDEPENDENTE DA JOGADA
         for(int linha = 0; linha < gameArray.length; linha++){
             for(int coluna = 0; coluna < gameArray[0].length; coluna++){
-                //Horizontal
+                //Verificação Horizontal
                 int contx = 0;
                 if(coluna <= gameArray[0].length - sequencia) {
                     for (int i = 0; i < sequencia; i++) {
@@ -73,7 +74,7 @@ public class Tabuleiro {
                         }
                     }
                 }
-                //Vertical
+                //Verificação Vertical
                 int conty = 0;
                 if(linha  <= gameArray.length - sequencia) {
                     for (int i = 0; i < sequencia; i++) {
@@ -84,7 +85,7 @@ public class Tabuleiro {
                         }
                     }
                 }
-                //DiagonalSup
+                //Verificação DiagonalSup
                 int contxySup = 0;
                 if(linha <= gameArray.length - sequencia && coluna <= gameArray[0].length - sequencia) {
                     for (int i = 0; i < 4; i++) {
@@ -95,7 +96,7 @@ public class Tabuleiro {
                         }
                     }
                 }
-                //DiagonalInf
+                //Verificação DiagonalInf
                 int contxyInf = 0;
                 if(linha >= 4 && coluna <= gameArray[0].length - sequencia) {
                     for (int i = 0; i < sequencia; i++) {
@@ -106,11 +107,12 @@ public class Tabuleiro {
                         }
                     }
                 }
+                //Caso alguma das verificações obtenha uma contagem igual à sequência necessária para vencer
                 if(contx == sequencia || conty == sequencia || contxySup == sequencia || contxyInf == sequencia){
-                    return true;
+                    return true;//Altera o valor do atributo acabou para True
                 }
             }
         }
-        return false;
+        return false;//Caso o contrário, acabou continua False
     }
 }

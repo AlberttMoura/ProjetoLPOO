@@ -13,7 +13,6 @@ public class Partida {
     int cont = 0;//Contador de jogadas. Inicando no 0(Partida de exibição)
     Scanner leitor = new Scanner(System.in);
 
-    public Partida(){}
     public Partida(Jogador jogador1, Jogador jogador2)
     {
         jog1 = jogador1;
@@ -38,8 +37,8 @@ public class Partida {
         if(cont !=0)
         {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
-            tabuleiro.preencherTabuleiro(pos, jogAtual.getId());
-            acabou = tabuleiro.verificarVitoria(jogAtual);
+            tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
+            acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
             alternarJogador();
             //Caso o número máximo de casas seja alcançado
             if(cont == 42)
@@ -52,8 +51,10 @@ public class Partida {
         tabuleiro.desenharTabuleiro();
         if(acabou){
             alternarJogador();
-            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\nPressione um numero para seguir");
+            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\nPressione um número para seguir.");
+
             //tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
+
             return;
         }
         System.out.print("\n" + jogAtual + ", sua vez:");

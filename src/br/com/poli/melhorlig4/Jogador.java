@@ -12,6 +12,9 @@ public class Jogador extends Pessoa {
         super(nome);
         this.id = id;
     }
+    public Jogador(int id){
+        this.id = id;
+    }
 
     //GETTERS
     public int getId(){

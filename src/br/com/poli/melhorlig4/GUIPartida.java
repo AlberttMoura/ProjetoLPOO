@@ -249,26 +249,27 @@ public class GUIPartida extends GUI{
     }
 
     private void terminar(int id){
-        Color cor = new Color(255,198,114);
+        Color azul = new Color(115, 129, 255 );
+        Color vermelho = new Color(255, 84, 84 );
         if(id == 1) {
             for(int i = 0; i <= 3; i++) {
-                c1.setBackground(Color.red);
-                c2.setBackground(Color.red);
-                c3.setBackground(Color.red);
-                c4.setBackground(Color.red);
-                c5.setBackground(Color.red);
-                c6.setBackground(Color.red);
-                c7.setBackground(Color.red);
+                c1.setBackground(vermelho);
+                c2.setBackground(vermelho);
+                c3.setBackground(vermelho);
+                c4.setBackground(vermelho);
+                c5.setBackground(vermelho);
+                c6.setBackground(vermelho);
+                c7.setBackground(vermelho);
             }
         }
         else if(id == 2){
-            c1.setBackground(Color.blue);
-            c2.setBackground(Color.blue);
-            c3.setBackground(Color.blue);
-            c4.setBackground(Color.blue);
-            c5.setBackground(Color.blue);
-            c6.setBackground(Color.blue);
-            c7.setBackground(Color.blue);
+            c1.setBackground(azul);
+            c2.setBackground(azul);
+            c3.setBackground(azul);
+            c4.setBackground(azul);
+            c5.setBackground(azul);
+            c6.setBackground(azul);
+            c7.setBackground(azul);
         }
         else{
             c1.setBackground(Color.green);

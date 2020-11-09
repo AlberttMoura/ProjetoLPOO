@@ -44,7 +44,7 @@ public class Tabuleiro {
         }
     }*/
 
-    //Verifica se a coluna esta cheia
+    //Verifica se a coluna está cheia
     public int verificarColuna(int pos)
     {
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
@@ -53,6 +53,7 @@ public class Tabuleiro {
                 return yPos;//Retorna a LINHA em que a peça do jogador ficou
             }
         }
+        System.out.println("Erroo");
         return -1;
     }
 

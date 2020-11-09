@@ -4,14 +4,15 @@ package br.com.poli.melhorlig4;
 import java.util.Scanner;
 
 public class Partida {
-    boolean acabou;//Status da partida
-    boolean vencedor;//Indica se há vencedor
-    Jogador jog1;
-    Jogador jog2;
-    Jogador jogAtual;//Jogador atual
-    Tabuleiro tabuleiro;
-    int cont = 0;//Contador de jogadas. Inicando no 0(Partida de exibição)
-    Scanner leitor = new Scanner(System.in);
+    public boolean acabou;//Status da partida
+    public boolean empate;
+    public Jogador vencedor;//Indica se há vencedor
+    private Jogador jog1;
+    private Jogador jog2;
+    private Jogador jogAtual;//Jogador atual
+    private Tabuleiro tabuleiro;
+    private int cont = 1;//Contador de jogadas. Inicando no 0(Partida de exibição)
+    private Scanner leitor = new Scanner(System.in);
 
     public Partida(Jogador jogador1, Jogador jogador2)
     {
@@ -39,24 +40,26 @@ public class Partida {
             System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
             tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
             acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
+            if(acabou)
+                vencedor = jogAtual;
             alternarJogador();
             //Caso o número máximo de casas seja alcançado
-            if(cont == 42)
+            if(cont == 42 && !acabou)
             {
                 System.out.println("Empate!");
                 acabou = true;
+                empate = true;
             }
+            System.out.println(cont);
         }
 
         tabuleiro.desenharTabuleiro();
-        if(acabou){
+        /*if(acabou){
             alternarJogador();
             System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\nPressione um número para seguir.");
 
             //tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
-
-            return;
-        }
+        }*/
         System.out.print("\n" + jogAtual + ", sua vez:");
         cont++;
     }
@@ -70,11 +73,27 @@ public class Partida {
     //Validação de jogada
     public int validaJogada(int casa)
     {
-        if(casa < 0 || casa >6)
+        if(casa >= 0 && casa <= 6 && tabuleiro.verificarColuna(casa) != -1)
         {
-            return -1;
+            return 0;
         }
-        return 1;
+        System.out.println("abacate");
+        return -1;
         
     }
+
+
+    public Jogador jogadorAtual(){
+        return jogAtual;
+    }
+
+    public int getY(){
+        return tabuleiro.getYpos();
+    }
+
+    public int getCont(){
+        System.out.println(cont + "oii");
+        return cont;
+    }
+
 }

@@ -26,7 +26,7 @@
           <background color="-1"/>
           <columns value="20"/>
           <enabled value="true"/>
-          <font name="Fira Code" size="14"/>
+          <font name="Fira Code" size="16" style="1"/>
           <foreground color="-15000545"/>
           <horizontalAlignment value="0"/>
           <requestFocusEnabled value="true"/>
@@ -44,7 +44,7 @@
           <background color="-1"/>
           <columns value="20"/>
           <enabled value="true"/>
-          <font name="Fira Code" size="14"/>
+          <font name="Fira Code" size="16" style="1"/>
           <foreground color="-15000545"/>
           <horizontalAlignment value="0"/>
         </properties>

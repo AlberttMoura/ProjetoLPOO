@@ -31,6 +31,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="1"/>
             </properties>
@@ -43,6 +44,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font size="16"/>
               <foreground color="-1"/>
               <text value="2"/>
             </properties>
@@ -55,6 +57,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="3"/>
             </properties>
@@ -67,6 +70,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="4"/>
             </properties>
@@ -79,6 +83,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="5"/>
             </properties>
@@ -91,6 +96,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="6"/>
             </properties>
@@ -103,6 +109,7 @@
               <background color="-15000545"/>
               <enabled value="true"/>
               <focusable value="false"/>
+              <font name="Fira Code" size="16"/>
               <foreground color="-1"/>
               <text value="7"/>
             </properties>

@@ -109,7 +109,7 @@ public class GUIPartida extends GUIController {
         turnoLabel.setIcon(rTurnoPiece);
 
         /*
-        * cada botao dispara uma ação que chama a funcao jogada com a posicao correspondente
+        * cada botao dispara uma ação que chama o método jogada com a posição correspondente ao botão
         * */
         button1.addActionListener(new ActionListener() {
             @Override
@@ -154,6 +154,7 @@ public class GUIPartida extends GUIController {
                 jogada(7);
             }
         });
+
         //o botao de menu cria um objeto GUIMenu, que é o JPanel referente ao menu
         //esse objeto é usado na função troca de tela, que apaga a tela atual e imprime a tela que foi passada
         menu.addActionListener(new ActionListener() {
@@ -172,11 +173,12 @@ public class GUIPartida extends GUIController {
 
     //o método jogada recebe a posição que vai de 1 a 7 no tabuleiro gráfico
     private void jogada(int pos){
-        //aqui são feitas as validações de jogada, o método valida jogada recebe onde foi feita a jogada
         //como o array da matriz vai de 0 a 6 fazemos pos-1 para equivaler a matriz
-        //caso a jogada seja validada e apartida não tenha acabado ou empatado o slot vazio é trocado pelo icone do jogador atual
-        if(partida.validaJogada(pos-1) != -1 && !partida.getAcabou() && !partida.getEmpate()) {
+        //caso a apartida não tenha acabado ou empatado o slot vazio é trocado pelo icone do jogador atual
+        if(!partida.getAcabou() && !partida.getEmpate()) {
+            //partida faz a jogada com pos equivalendo ao "eixo x"
             partida.fazerJogada(pos - 1);
+            //caso seja o jogador 1 o slot fica azul caso seja o 2 o slot fica vermelho
             if (partida.jogadorAtual().getId() == 1) {
                 slots[partida.getY()][pos - 1].setIcon(bPiece);
             } else {
@@ -184,18 +186,21 @@ public class GUIPartida extends GUIController {
             }
         }
 
-
+        //caso empate seja true
         if (partida.getEmpate()) {
             turno.setText("Empate!");
             turnoLabel.setIcon(null);
-            terminar(0);
+            terminar(0); //terminar recebe 0 para mostrar que nenhum jogador venceu, encerrando o jogo
+            // deixando o tabuleito fica verde
         }
+        //se a partida acaba sem gerar empate
         else if(partida.getAcabou()) {
             turno.setText(partida.vencedor.toString() + " Venceu!");
-            terminar(partida.vencedor.getId());
+            terminar(partida.vencedor.getId());//turno recebe o id referente ao jogador vencedor, encerrando o jogo
+            //e deixando o tabuleiro da cor referente ao jogador
         }
 
-
+        //se não houve empate ou vencedor a partida continua
         else {
             turno.setText("Vez do " + partida.jogadorAtual().toString());
             if(partida.jogadorAtual().getId() == 1)
@@ -210,6 +215,7 @@ public class GUIPartida extends GUIController {
         }
     }
 
+    //cada slot recebe um JLabel para mostrar as peças, inicialmente todas brancas (vazias), do tabuleiro
     private void preencherSlots(){
         slots[0][0] = p1;
         slots[1][0] = p2;
@@ -261,7 +267,7 @@ public class GUIPartida extends GUIController {
         slots[5][6] = p42;
 
 
-
+        //todos os JLabels tem a mesma imagem no começo(pecas brancas)
         for(int linha = 0; linha < slots.length; linha ++){
             for(int coluna = 0; coluna < slots[0].length; coluna++){
                 slots[linha][coluna].setIcon(bMargin);
@@ -270,9 +276,11 @@ public class GUIPartida extends GUIController {
 
     }
 
+    //terminar receve 0, 1 ou 2 dependendo se houve empate ou vitória
     private void terminar(int id){
         Color azul = new Color(115, 129, 255 );
         Color vermelho = new Color(255, 84, 84 );
+        //caso o id seja 1, significa que o jogador 1 venceu, as colunas ficam da cor azul
         if(id == 1) {
             for(int i = 0; i <= 3; i++) {
                 c1.setBackground(vermelho);
@@ -284,6 +292,7 @@ public class GUIPartida extends GUIController {
                 c7.setBackground(vermelho);
             }
         }
+        //caso o id seja 2, o jogador 2 ganhou e as colunas ficam vermelhas
         else if(id == 2){
             c1.setBackground(azul);
             c2.setBackground(azul);
@@ -293,6 +302,7 @@ public class GUIPartida extends GUIController {
             c6.setBackground(azul);
             c7.setBackground(azul);
         }
+        //caso nao haja vencedores, as colunas ficam verdes
         else{
             c1.setBackground(Color.green);
             c2.setBackground(Color.green);
@@ -301,13 +311,6 @@ public class GUIPartida extends GUIController {
             c5.setBackground(Color.green);
             c6.setBackground(Color.green);
             c7.setBackground(Color.green);
-        }
-    }
-    private void delay(int mili){
-        try {
-            Thread.sleep(mili);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
         }
     }
 

@@ -24,26 +24,6 @@ public class Tabuleiro {
     }
 
 
-    public void desenharTabuleiro(){
-        System.out.println("  (0) (1) (2) (3) (4) (5) (6)  ");
-        for(int linha = 0; linha < gameArray.length; linha++){
-            for(int coluna = 0; coluna < gameArray[0].length; coluna++){
-                System.out.print(" | " + (gameArray[linha][coluna] == 0 ? " " : gameArray[linha][coluna]));
-            }
-            System.out.println(" |");
-        }
-
-    
-    }
-    //Zerar tabuleiro
-    //Projeto de método para um futuro distante
-    /*public void zerarTabuleiro(){
-        for(int linha = gameArray.length - 1; linha >= 0; linha--){
-            for(int coluna = 5;coluna>=0;coluna--)
-            gameArray[linha][coluna] = 0;
-        }
-    }*/
-
     //Verifica se a coluna está cheia
     public int verificarColuna(int pos)
     {
@@ -87,6 +67,7 @@ public class Tabuleiro {
                     }
                 }
                 //Verificação DiagonalSup
+                //conta as casa de baixo para cima ate a linha 4 e a coluna 2 (contando de 1 a 7)
                 int contxySup = 0;
                 if(linha <= gameArray.length - sequencia && coluna <= gameArray[0].length - sequencia) {
                     for (int i = 0; i < 4; i++) {
@@ -98,6 +79,7 @@ public class Tabuleiro {
                     }
                 }
                 //Verificação DiagonalInf
+                //conta as casas de cima para baixo ate a linha 4 e a coluna 3 (contando de 1 a 7)
                 int contxyInf = 0;
                 if(linha >= 4 && coluna <= gameArray[0].length - sequencia) {
                     for (int i = 0; i < sequencia; i++) {

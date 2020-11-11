@@ -9,6 +9,7 @@ public class GUIController{
     private final JFrame janela = new JFrame();
     public static JPanel origin = new JPanel(new GridLayout(1,1));
 
+    //o contrutor vazio permite que os objetos sejam criados sem que cada um deles instancie uma janela JFrame nova
     public GUIController(){}
 
     public GUIController(int i){

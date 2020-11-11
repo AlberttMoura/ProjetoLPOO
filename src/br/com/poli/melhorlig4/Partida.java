@@ -27,14 +27,14 @@ public class Partida {
     public void fazerJogada(int pos)
     {
         //validando as jogadas, o jogador jogará novamente caso a jogada seja inválida ou a coluna esteja preenchida
-        while(validaJogada(pos) == -1 || tabuleiro.verificarColuna(pos) == -1)
+        while(tabuleiro.verificarColuna(pos) == -1)
         {
             pos = leitor.nextInt();
         }
 
         tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
         acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
-        if(acabou)
+        if(acabou)//se acabou, o jogador atual sai como vencedor
             vencedor = jogAtual;
         else if(cont == 42)
         {
@@ -42,7 +42,7 @@ public class Partida {
             empate = true;
         }
 
-        alternarJogador();
+        alternarJogador();//alternamos o jogador
         cont++;
     }
 
@@ -51,18 +51,6 @@ public class Partida {
         if(jogAtual.getId() == 1) jogAtual = jog2;
         else jogAtual = jog1;
     }
-
-    //Validação de jogada
-    public int validaJogada(int casa)
-    {
-        if(casa >= 0 && casa <= 6 && tabuleiro.verificarColuna(casa) != -1)
-        {
-            return 0;
-        }
-        return -1;
-        
-    }
-
 
     public Jogador jogadorAtual(){
         return jogAtual;
@@ -73,7 +61,6 @@ public class Partida {
     }
 
     public int getCont(){
-        //System.out.println(cont + "oii");
         return cont;
     }
 

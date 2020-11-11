@@ -12,9 +12,10 @@ public class GUIMenu{
     private JButton sairButton;
     private JButton instruçõesButton;
     private JButton jogarButton;
-    private GUIController guiController = new GUIController();
+    private GUIController guiController = new GUIController();//responsável por trocar os JPanels referente a cada tela
 
-
+    //GUIMenu é o menu do jogo, onde o app inicia
+    //cada botao ao ser clicado cria um objeto para as outras telas de instrução, céditos, jogo ou encerra o programa
     public GUIMenu(){
         jogarButton.addActionListener(new ActionListener() {
             @Override
@@ -45,6 +46,7 @@ public class GUIMenu{
         });
     }
 
+    //todos os GUI tem esta função para serem chamados pelo metodo trocarTela de GUIControler
     public JPanel getMainPanel(){
         return mainPanel;
     }

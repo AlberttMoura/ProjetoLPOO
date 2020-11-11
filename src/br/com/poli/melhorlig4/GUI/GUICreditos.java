@@ -11,6 +11,7 @@ public class GUICreditos extends GUIController {
     private JButton voltarAoMenuButton;
     private GUIController guiController = new GUIController();
 
+    //instancia um botao que ao ser clicado cria um objeto GUIMenu, o menu do jogo e vai para a tela de menu
     public GUICreditos() {
         voltarAoMenuButton.addActionListener(new ActionListener() {
             @Override

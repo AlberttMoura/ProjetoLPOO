@@ -12,8 +12,9 @@ public class GUIFormu extends GUIController {
     private JTextField textField2;
     private JButton confirmarButton;
     private JPanel mainPanel;
-    private GUIController guiController = new GUIController();
+    private GUIController guiController = new GUIController();//permite a troca de telas
 
+    // GUIFormu é o formulario que vai cadastrar os jogadores no sistema e iniciar o GUIPartida
     public GUIFormu() {
         confirmarButton.addActionListener(new ActionListener() {
             @Override

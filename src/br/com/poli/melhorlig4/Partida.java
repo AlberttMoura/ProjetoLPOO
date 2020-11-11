@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Partida {
     private boolean acabou;//Status da partida
-    private boolean empate;
-    public Jogador vencedor;//Indica se há vencedor
+    private boolean empate;//Caso dê empate
+    public Jogador vencedor;//Indica o vencedor
     private Jogador jog1;
     private Jogador jog2;
     private Jogador jogAtual;//Jogador atual
@@ -54,22 +54,22 @@ public class Partida {
 
     public Jogador jogadorAtual(){
         return jogAtual;
-    }
+    }//Retorna o jogador atual para a interface
 
     public int getY(){
         return tabuleiro.getYpos();
-    }
+    }//Retorna a linha em que a peça ficou, para ser usada pela interface
 
     public int getCont(){
         return cont;
-    }
+    }//Retorna o número da jogada da vez. Usa o cont como Round
 
     public boolean getEmpate(){
         return empate;
-    }
+    }//Retorna se a partida empatou
 
     public boolean getAcabou(){
         return acabou;
-    }
+    }//Retorna se a partida acaobu. Seja por empate, seja por vitória
 
 }

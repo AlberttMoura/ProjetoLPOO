@@ -91,8 +91,8 @@ public class GUIPartida extends GUIController {
     public GUIPartida(Jogador jog1, Jogador jog2) {
         /*
         * O construtor:
-        *  recebe os 2 objetos Jogadore e inicia uma Partida
-        * define os icones da peça azul e da peça vermelha
+        *  recebe os 2 objetos Jogadores e inicia uma Partida
+        * define os ícones da peça azul e da peça vermelha
         * chama a funcao de preencheSlots, que define os Jlabels na matriz um a um e os da a imagem da casa vazia no tabuleiro
         * define os icones da barra de status do jogo
         * */
@@ -100,16 +100,16 @@ public class GUIPartida extends GUIController {
         this.jog2 = jog2;
         partida = new Partida(jog1, jog2);
         turno.setText("Vez do " + jog1.toString());
-        bPiece = new ImageIcon(new ImageIcon("images/bPiece.png").getImage().getScaledInstance(100, 100,0));
-        rPiece = new ImageIcon(new ImageIcon("images/rPiece.png").getImage().getScaledInstance(100, 100,0));
-        bMargin = new ImageIcon(new ImageIcon("images/bMargin.png").getImage().getScaledInstance(100, 100,0));
+        bPiece = new ImageIcon(new ImageIcon("src/br/com/poli/melhorlig4/images/bPiece.png").getImage().getScaledInstance(100, 100,0));
+        rPiece = new ImageIcon(new ImageIcon("src/br/com/poli/melhorlig4/images/rPiece.png").getImage().getScaledInstance(100, 100,0));
+        bMargin = new ImageIcon(new ImageIcon("src/br/com/poli/melhorlig4/images/bMargin.png").getImage().getScaledInstance(100, 100,0));
         preencherSlots();
-        bTurnoPiece = new ImageIcon(new ImageIcon("images/bPiece.png").getImage().getScaledInstance(16, 16,0));
-        rTurnoPiece = new ImageIcon(new ImageIcon("images/rPiece.png").getImage().getScaledInstance(16, 16,0));
+        bTurnoPiece = new ImageIcon(new ImageIcon("src/br/com/poli/melhorlig4/images/bPiece.png").getImage().getScaledInstance(16, 16,0));
+        rTurnoPiece = new ImageIcon(new ImageIcon("src/br/com/poli/melhorlig4/images/rPiece.png").getImage().getScaledInstance(16, 16,0));
         turnoLabel.setIcon(rTurnoPiece);
 
         /*
-        * cada botao dispara uma ação que chama o método jogada com a posição correspondente ao botão
+        * cada botão dispara uma ação que chama o método jogada com a posição correspondente ao botão
         * */
         button1.addActionListener(new ActionListener() {
             @Override
@@ -155,7 +155,7 @@ public class GUIPartida extends GUIController {
             }
         });
 
-        //o botao de menu cria um objeto GUIMenu, que é o JPanel referente ao menu
+        //o botão de menu cria um objeto GUIMenu, que é o JPanel referente ao menu
         //esse objeto é usado na função troca de tela, que apaga a tela atual e imprime a tela que foi passada
         menu.addActionListener(new ActionListener() {
             @Override
@@ -166,7 +166,7 @@ public class GUIPartida extends GUIController {
         });
     }
 
-    //essa função retorna o painel principal, onde toda parte gréfica do jogo se encontra
+    //essa função retorna o painel principal, onde toda parte gráfica do jogo se encontra
     public JPanel getMainPanel(){
         return mainPanel;
     }
@@ -178,7 +178,7 @@ public class GUIPartida extends GUIController {
         if(!partida.getAcabou() && !partida.getEmpate()) {
             //partida faz a jogada com pos equivalendo ao "eixo x"
             partida.fazerJogada(pos - 1);
-            //caso seja o jogador 1 o slot fica azul caso seja o 2 o slot fica vermelho
+            //caso seja o jogador 1, o slot fica azul caso seja o 2 o slot fica vermelho
             if (partida.jogadorAtual().getId() == 1) {
                 slots[partida.getY()][pos - 1].setIcon(bPiece);
             } else {
@@ -193,6 +193,7 @@ public class GUIPartida extends GUIController {
             terminar(0); //terminar recebe 0 para mostrar que nenhum jogador venceu, encerrando o jogo
             // deixando o tabuleito fica verde
         }
+
         //se a partida acaba sem gerar empate
         else if(partida.getAcabou()) {
             turno.setText(partida.vencedor.toString() + " Venceu!");
@@ -200,7 +201,7 @@ public class GUIPartida extends GUIController {
             //e deixando o tabuleiro da cor referente ao jogador
         }
 
-        //se não houve empate ou vencedor a partida continua
+        //se não houver empate ou vencedor a partida continua
         else {
             turno.setText("Vez do " + partida.jogadorAtual().toString());
             if(partida.jogadorAtual().getId() == 1)
@@ -280,6 +281,7 @@ public class GUIPartida extends GUIController {
     private void terminar(int id){
         Color azul = new Color(115, 129, 255 );
         Color vermelho = new Color(255, 84, 84 );
+        Color verde = new Color(84, 255, 87);
         //caso o id seja 1, significa que o jogador 1 venceu, as colunas ficam da cor azul
         if(id == 1) {
             for(int i = 0; i <= 3; i++) {
@@ -304,13 +306,13 @@ public class GUIPartida extends GUIController {
         }
         //caso nao haja vencedores, as colunas ficam verdes
         else{
-            c1.setBackground(Color.green);
-            c2.setBackground(Color.green);
-            c3.setBackground(Color.green);
-            c4.setBackground(Color.green);
-            c5.setBackground(Color.green);
-            c6.setBackground(Color.green);
-            c7.setBackground(Color.green);
+            c1.setBackground(verde);
+            c2.setBackground(verde);
+            c3.setBackground(verde);
+            c4.setBackground(verde);
+            c5.setBackground(verde);
+            c6.setBackground(verde);
+            c7.setBackground(verde);
         }
     }
 

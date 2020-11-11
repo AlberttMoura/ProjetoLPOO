@@ -33,10 +33,10 @@ public class Partida {
             pos = leitor.nextInt();
         }
 
-        System.out.println("y:" + (tabuleiro.getYpos()+1) + " x: " + pos);
+        //System.out.println("y:" + (tabuleiro.getYpos()+1) + " x: " + pos);
         //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
 
-        System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
+        //System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
         tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
         acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
         if(acabou)
@@ -78,7 +78,7 @@ public class Partida {
     }
 
     public int getCont(){
-        System.out.println(cont + "oii");
+        //System.out.println(cont + "oii");
         return cont;
     }
 

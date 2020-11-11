@@ -43,6 +43,16 @@ public class GUIMenu{
                 //GUIController.origin.add(guiCreditos.getMainPanel());
             }
         });
+        instruçõesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GUIInstrucoes guiInstrucoes = new GUIInstrucoes();
+                guiController.trocarTela(guiInstrucoes.getMainPanel());
+                //GUIController.origin.removeAll();
+                //GUIController.origin.revalidate();
+                //GUIController.origin.add(guiCreditos.getMainPanel());
+            }
+        });
     }
 
     public JPanel getMainPanel(){

@@ -1,11 +1,15 @@
 //ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
 
 package br.com.poli.melhorlig4;
-import java.util.Scanner;
+
+import br.com.poli.melhorlig4.GUI.GUIMenu;
+
 public class Main {
     public static void main(String[] args) {
 
-        new GUI();
+        GUIMenu guiMenu = new GUIMenu();
+        GUIController guiController = new GUIController(1);
+        guiController.trocarTela(guiMenu.getMainPanel());
 
     }
 }

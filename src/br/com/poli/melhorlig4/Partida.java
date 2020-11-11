@@ -29,14 +29,9 @@ public class Partida {
         //validando as jogadas, o jogador jogará novamente caso a jogada seja inválida ou a coluna esteja preenchida
         while(validaJogada(pos) == -1 || tabuleiro.verificarColuna(pos) == -1)
         {
-            //System.out.println("Jogada inválida ou coluna cheia. Favor tentar novamente ");
             pos = leitor.nextInt();
         }
 
-        //System.out.println("y:" + (tabuleiro.getYpos()+1) + " x: " + pos);
-        //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
-
-        //System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
         tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
         acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
         if(acabou)

@@ -17,9 +17,6 @@ public class GUICreditos extends GUIController {
             public void actionPerformed(ActionEvent e) {
                 GUIMenu guiMenu = new GUIMenu();
                 guiController.trocarTela(guiMenu.getMainPanel());
-                //origin.removeAll();
-                //origin.revalidate();
-                //origin.add(guiMenu.getMainPanel());
             }
         });
     }

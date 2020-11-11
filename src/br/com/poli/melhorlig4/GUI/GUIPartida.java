@@ -10,6 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUIPartida extends GUIController {
+    /*
+    * Legenda
+    * buttons: botoes do tabuleiro
+    * p: posicoes inicialmente vazias do tabuleiro
+    * c: colunas do tabuleiro (as colunas contém 6 "ps" cada)
+    * */
     private JPanel mainPanel;
     private JButton button1;
     private JButton button2;
@@ -61,9 +67,9 @@ public class GUIPartida extends GUIController {
     private JLabel p40;
     private JLabel p41;
     private JLabel p42;
-    private JButton menu;
-    private JLabel turnoLabel;
-    private JLabel roundLabel;
+    private JButton menu;//botao para voltar ao menu
+    private JLabel turnoLabel;//indica de quem é a vez de jogar
+    private JLabel roundLabel;//indica quantas jogadas foram feitas ao todo
     private JPanel c1;
     private JPanel c2;
     private JPanel c3;
@@ -74,15 +80,22 @@ public class GUIPartida extends GUIController {
     Jogador jog1;
     Jogador jog2;
     Partida partida;
-    ImageIcon bPiece;
-    ImageIcon rPiece;
-    ImageIcon bMargin;
-    ImageIcon bTurnoPiece;
-    ImageIcon rTurnoPiece;
-    JLabel[][] slots = new JLabel[6][7];
-    private final GUIController guiController = new GUIController();
+    ImageIcon bPiece;//peça azul
+    ImageIcon rPiece;//peça vermelha
+    ImageIcon bMargin;//imagem da casa vazia no tabuleiro
+    ImageIcon bTurnoPiece;//imagem que fica na barra de cima indicando o jogador azul
+    ImageIcon rTurnoPiece;//imagem que fica na barra de cima indicando o jogador vermelho
+    JLabel[][] slots = new JLabel[6][7]; //o tabuleiro a ser preenchido pelos JLabels p
+    private final GUIController guiController = new GUIController();//o controlador que faz a mudanca entre os manels
 
     public GUIPartida(Jogador jog1, Jogador jog2) {
+        /*
+        * O construtor:
+        *  recebe os 2 objetos Jogadore e inicia uma Partida
+        * define os icones da peça azul e da peça vermelha
+        * chama a funcao de preencheSlots, que define os Jlabels na matriz um a um e os da a imagem da casa vazia no tabuleiro
+        * define os icones da barra de status do jogo
+        * */
         this.jog1 = jog1;
         this.jog2 = jog2;
         partida = new Partida(jog1, jog2);
@@ -95,6 +108,9 @@ public class GUIPartida extends GUIController {
         rTurnoPiece = new ImageIcon(new ImageIcon("images/rPiece.png").getImage().getScaledInstance(16, 16,0));
         turnoLabel.setIcon(rTurnoPiece);
 
+        /*
+        * cada botao dispara uma ação que chama a funcao jogada com a posicao correspondente
+        * */
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,23 +154,27 @@ public class GUIPartida extends GUIController {
                 jogada(7);
             }
         });
+        //o botao de menu cria um objeto GUIMenu, que é o JPanel referente ao menu
+        //esse objeto é usado na função troca de tela, que apaga a tela atual e imprime a tela que foi passada
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GUIMenu guiMenu = new GUIMenu();
                 guiController.trocarTela(guiMenu.getMainPanel());
-                //origin.removeAll();
-                //origin.revalidate();
-                //origin.add(guiMenu.getMainPanel());
             }
         });
     }
 
+    //essa função retorna o painel principal, onde toda parte gréfica do jogo se encontra
     public JPanel getMainPanel(){
         return mainPanel;
     }
 
+    //o método jogada recebe a posição que vai de 1 a 7 no tabuleiro gráfico
     private void jogada(int pos){
+        //aqui são feitas as validações de jogada, o método valida jogada recebe onde foi feita a jogada
+        //como o array da matriz vai de 0 a 6 fazemos pos-1 para equivaler a matriz
+        //caso a jogada seja validada e apartida não tenha acabado ou empatado o slot vazio é trocado pelo icone do jogador atual
         if(partida.validaJogada(pos-1) != -1 && !partida.getAcabou() && !partida.getEmpate()) {
             partida.fazerJogada(pos - 1);
             if (partida.jogadorAtual().getId() == 1) {

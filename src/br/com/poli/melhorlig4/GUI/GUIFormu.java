@@ -21,9 +21,6 @@ public class GUIFormu extends GUIController {
                 Jogador jog1 = new Jogador(textField1.getText(), 1);
                 Jogador jog2 = new Jogador(textField2.getText(), 2);
                 GUIPartida guiPartida = new GUIPartida(jog1, jog2);
-                //origin.removeAll();
-                //origin.revalidate();
-                //origin.add(guiPartida.getMainPanel());
                 guiController.trocarTela(guiPartida.getMainPanel());
             }
         });

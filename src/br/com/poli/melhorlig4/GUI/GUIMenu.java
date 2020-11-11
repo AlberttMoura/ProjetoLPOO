@@ -21,10 +21,6 @@ public class GUIMenu{
             public void actionPerformed(ActionEvent e) {
                 GUIFormu guiFormu = new GUIFormu();
                 guiController.trocarTela(guiFormu.getMainPanel());
-                //GUIController.origin.removeAll();
-                //GUIController.origin.revalidate();
-                //GUIController.origin.add(guiFormu.getMainPanel());
-
             }
         });
         sairButton.addActionListener(new ActionListener() {
@@ -38,9 +34,6 @@ public class GUIMenu{
             public void actionPerformed(ActionEvent e) {
                 GUICreditos guiCreditos = new GUICreditos();
                 guiController.trocarTela(guiCreditos.getMainPanel());
-                //GUIController.origin.removeAll();
-                //GUIController.origin.revalidate();
-                //GUIController.origin.add(guiCreditos.getMainPanel());
             }
         });
         instruçõesButton.addActionListener(new ActionListener() {
@@ -48,9 +41,6 @@ public class GUIMenu{
             public void actionPerformed(ActionEvent e) {
                 GUIInstrucoes guiInstrucoes = new GUIInstrucoes();
                 guiController.trocarTela(guiInstrucoes.getMainPanel());
-                //GUIController.origin.removeAll();
-                //GUIController.origin.revalidate();
-                //GUIController.origin.add(guiCreditos.getMainPanel());
             }
         });
     }

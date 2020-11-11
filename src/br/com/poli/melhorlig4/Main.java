@@ -2,24 +2,12 @@
 
 package br.com.poli.melhorlig4;
 
+import br.com.poli.melhorlig4.GUI.GUIMenu;
+
 public class Main {
     public static void main(String[] args) {
-        GUIController sla = new GUIController();
-        sla.start();
-
-        //GUIMenu gui = new GUIMenu();
-        //gui.start();
-        /*Scanner scam = new Scanner(System.in);
-        System.out.print("Nome do Jogador 1: ");
-        Jogador jog1 = new Jogador(scam.nextLine(),1);
-        System.out.print("Nome do Jogador 2: ");
-        Jogador jog2 = new Jogador(scam.nextLine(),2);
-        Partida partida = new Partida(jog1, jog2);
-        int x = 0;
-        while (!partida.acabou) {
-            partida.fazerJogada(x);
-            x = scam.nextInt();
-        }
-        scam.close();*/
+        GUIMenu guiMenu = new GUIMenu();
+        GUIController guiController = new GUIController(1);
+        guiController.trocarTela(guiMenu.getMainPanel());
     }
 }

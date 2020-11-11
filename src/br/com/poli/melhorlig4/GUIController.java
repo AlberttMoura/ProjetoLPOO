@@ -4,13 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GUIController{
-    static JFrame janela = new JFrame();
-    static JPanel origin = new JPanel(new GridLayout(1,1));
+    private JFrame janela = new JFrame();
+    public static JPanel origin = new JPanel(new GridLayout(1,1));
 
-    //GUIs
-    GUIMenu guiMenu = new GUIMenu();
+    public GUIController(){}
 
-    public GUIController(){ janela.setTitle("Melhor Lig4");
+    public GUIController(int i){
+        janela.setTitle("Melhor Lig4");
         //janela.setSize(900,700);
         janela.setExtendedState(janela.MAXIMIZED_BOTH);
         janela.setUndecorated(true);
@@ -20,7 +20,9 @@ public class GUIController{
         janela.setVisible(true);
     }
 
-    public void start(){
-        origin.add(guiMenu.getMainPanel());
+    public void trocarTela(JPanel mainPanel){
+        origin.removeAll();
+        origin.revalidate();
+        origin.add(mainPanel);
     }
 }

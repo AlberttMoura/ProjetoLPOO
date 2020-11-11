@@ -1,13 +1,15 @@
-package br.com.poli.melhorlig4;
+package br.com.poli.melhorlig4.GUI;
 
-import javafx.scene.image.Image;
-import java.util.concurrent.TimeUnit;
+import br.com.poli.melhorlig4.GUIController;
+import br.com.poli.melhorlig4.Jogador;
+import br.com.poli.melhorlig4.Partida;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUIPartida extends GUI{
+public class GUIPartida extends GUIController {
     private JPanel mainPanel;
     private JButton button1;
     private JButton button2;
@@ -78,18 +80,19 @@ public class GUIPartida extends GUI{
     ImageIcon bTurnoPiece;
     ImageIcon rTurnoPiece;
     JLabel[][] slots = new JLabel[6][7];
+    private final GUIController guiController = new GUIController();
 
     public GUIPartida(Jogador jog1, Jogador jog2) {
         this.jog1 = jog1;
         this.jog2 = jog2;
         partida = new Partida(jog1, jog2);
         turno.setText("Vez do " + jog1.toString());
-        bPiece = new ImageIcon(new ImageIcon("bPiece.png").getImage().getScaledInstance(100, 100,0));
-        rPiece = new ImageIcon(new ImageIcon("rPiece.png").getImage().getScaledInstance(100, 100,0));
-        bMargin = new ImageIcon(new ImageIcon("bMargin.png").getImage().getScaledInstance(100, 100,0));
+        bPiece = new ImageIcon(new ImageIcon("images/bPiece.png").getImage().getScaledInstance(100, 100,0));
+        rPiece = new ImageIcon(new ImageIcon("images/rPiece.png").getImage().getScaledInstance(100, 100,0));
+        bMargin = new ImageIcon(new ImageIcon("images/bMargin.png").getImage().getScaledInstance(100, 100,0));
         preencherSlots();
-        bTurnoPiece = new ImageIcon(new ImageIcon("bPiece.png").getImage().getScaledInstance(16, 16,0));
-        rTurnoPiece = new ImageIcon(new ImageIcon("rPiece.png").getImage().getScaledInstance(16, 16,0));
+        bTurnoPiece = new ImageIcon(new ImageIcon("images/bPiece.png").getImage().getScaledInstance(16, 16,0));
+        rTurnoPiece = new ImageIcon(new ImageIcon("images/rPiece.png").getImage().getScaledInstance(16, 16,0));
         turnoLabel.setIcon(rTurnoPiece);
 
         button1.addActionListener(new ActionListener() {
@@ -139,9 +142,10 @@ public class GUIPartida extends GUI{
             @Override
             public void actionPerformed(ActionEvent e) {
                 GUIMenu guiMenu = new GUIMenu();
-                GUIController.origin.removeAll();
-                GUIController.origin.revalidate();
-                GUIController.origin.add(guiMenu.getMainPanel());
+                guiController.trocarTela(guiMenu.getMainPanel());
+                //origin.removeAll();
+                //origin.revalidate();
+                //origin.add(guiMenu.getMainPanel());
             }
         });
     }
@@ -151,24 +155,22 @@ public class GUIPartida extends GUI{
     }
 
     private void jogada(int pos){
-        if(partida.validaJogada(pos-1) != -1 && !partida.acabou && !partida.empate) {
+        if(partida.validaJogada(pos-1) != -1 && !partida.getAcabou() && !partida.getEmpate()) {
             partida.fazerJogada(pos - 1);
             if (partida.jogadorAtual().getId() == 1) {
                 slots[partida.getY()][pos - 1].setIcon(bPiece);
-                slots[partida.getY()][pos - 1].revalidate();
-                slots[partida.getY()][pos - 1].repaint();
             } else {
                 slots[partida.getY()][pos - 1].setIcon(rPiece);
-                slots[partida.getY()][pos - 1].revalidate();
-                slots[partida.getY()][pos - 1].repaint();
             }
         }
-        if (partida.empate) {
+
+
+        if (partida.getEmpate()) {
             turno.setText("Empate!");
             turnoLabel.setIcon(null);
             terminar(0);
         }
-        else if(partida.acabou) {
+        else if(partida.getAcabou()) {
             turno.setText(partida.vencedor.toString() + " Venceu!");
             terminar(partida.vencedor.getId());
         }

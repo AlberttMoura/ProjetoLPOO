@@ -4,8 +4,8 @@ package br.com.poli.melhorlig4;
 import java.util.Scanner;
 
 public class Partida {
-    public boolean acabou;//Status da partida
-    public boolean empate;
+    private boolean acabou;//Status da partida
+    private boolean empate;
     public Jogador vencedor;//Indica se há vencedor
     private Jogador jog1;
     private Jogador jog2;
@@ -29,38 +29,25 @@ public class Partida {
         //validando as jogadas, o jogador jogará novamente caso a jogada seja inválida ou a coluna esteja preenchida
         while(validaJogada(pos) == -1 || tabuleiro.verificarColuna(pos) == -1)
         {
-            System.out.println("Jogada inválida ou coluna cheia. Favor tentar novamente ");
+            //System.out.println("Jogada inválida ou coluna cheia. Favor tentar novamente ");
             pos = leitor.nextInt();
         }
 
         System.out.println("y:" + (tabuleiro.getYpos()+1) + " x: " + pos);
         //Cont começa em 0, pois é um turno inicial em que o método fazerJogada apenas imprime o tabuleiro e dirá de quem é a vez
-        if(cont !=0)
+
+        System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
+        tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
+        acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
+        if(acabou)
+            vencedor = jogAtual;
+        else if(cont == 42)
         {
-            System.out.println(jogAtual + " jogou na coluna " + pos + "\n");
-            tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
-            acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
-            if(acabou)
-                vencedor = jogAtual;
-            alternarJogador();
-            //Caso o número máximo de casas seja alcançado
-            if(cont == 42 && !acabou)
-            {
-                System.out.println("Empate!");
-                acabou = true;
-                empate = true;
-            }
-            System.out.println(cont);
+            acabou = true;
+            empate = true;
         }
 
-        tabuleiro.desenharTabuleiro();
-        /*if(acabou){
-            alternarJogador();
-            System.out.println("Jogador " + jogAtual.getId() + " venceu!\nFim do Jogo.\nPressione um número para seguir.");
-
-            //tabuleiro.zerarTabuleiro();//zerando tabuleiro para caso haja proxima rodada
-        }*/
-        System.out.print("\n" + jogAtual + ", sua vez:");
+        alternarJogador();
         cont++;
     }
 
@@ -77,7 +64,6 @@ public class Partida {
         {
             return 0;
         }
-        System.out.println("abacate");
         return -1;
         
     }
@@ -94,6 +80,14 @@ public class Partida {
     public int getCont(){
         System.out.println(cont + "oii");
         return cont;
+    }
+
+    public boolean getEmpate(){
+        return empate;
+    }
+
+    public boolean getAcabou(){
+        return acabou;
     }
 
 }

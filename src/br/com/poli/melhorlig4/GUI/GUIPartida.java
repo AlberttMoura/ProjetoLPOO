@@ -294,6 +294,7 @@ public class GUIPartida extends GUIController {
                 c7.setBackground(vermelho);
             }
         }
+
         //caso o id seja 2, o jogador 2 ganhou e as colunas ficam vermelhas
         else if(id == 2){
             c1.setBackground(azul);

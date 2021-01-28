@@ -1,5 +1,3 @@
-//ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-
 package br.com.poli.melhorlig4;
 import java.util.Scanner;
 
@@ -26,24 +24,19 @@ public class Partida {
     //Faz as jogadas dos jogadores
     public void fazerJogada(int pos)
     {
-        //validando as jogadas, o jogador jogará novamente caso a jogada seja inválida ou a coluna esteja preenchida
-        while(tabuleiro.verificarColuna(pos) == -1)
-        {
-            pos = leitor.nextInt();
-        }
+        if(tabuleiro.verificarColuna(pos) != -1) {
+            tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
+            acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
+            if (acabou)//se acabou, o jogador atual sai como vencedor
+                vencedor = jogAtual;
+            else if (cont == 42) {
+                acabou = true;
+                empate = true;
+            }
 
-        tabuleiro.preencherTabuleiro(pos, jogAtual.getId());//Recebe o id do jogador atual e sua coluna de jogada
-        acabou = tabuleiro.verificarVitoria(jogAtual);//Verfica na vez do jogador atual se a jogada foi vitoriosa
-        if(acabou)//se acabou, o jogador atual sai como vencedor
-            vencedor = jogAtual;
-        else if(cont == 42)
-        {
-            acabou = true;
-            empate = true;
+            alternarJogador();//alternamos o jogador
+            cont++;
         }
-
-        alternarJogador();//alternamos o jogador
-        cont++;
     }
 
     //Exibe as jogadas
@@ -72,4 +65,7 @@ public class Partida {
         return acabou;
     }//Retorna se a partida acaobu. Seja por empate, seja por vitória
 
+    public int colunaCheia(int pos) {
+        return tabuleiro.verificarColuna(pos);
+    }
 }

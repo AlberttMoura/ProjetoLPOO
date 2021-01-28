@@ -1,4 +1,3 @@
-
 package br.com.poli.melhorlig4;
 
 public class Pessoa {

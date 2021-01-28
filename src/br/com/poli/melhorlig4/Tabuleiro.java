@@ -1,5 +1,3 @@
-//ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-
 package br.com.poli.melhorlig4;
 
 public class Tabuleiro {
@@ -24,16 +22,18 @@ public class Tabuleiro {
     }
 
 
-    //Verifica se a coluna está cheia
+    //Verifica se a coluna está cheia e retorna a posição da peça
     public int verificarColuna(int pos)
     {
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
             if(gameArray[linha][pos] == 0){
                 yPos = linha;
+                System.out.println("oi");
                 return yPos;//Retorna a LINHA em que a peça do jogador ficou
+
             }
         }
-        System.out.println("Erroo");
+        System.out.println("Oi");
         return -1;
     }
 

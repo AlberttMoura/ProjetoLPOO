@@ -1,5 +1,3 @@
-//ALUNOS: FERNANDA BARBOSA DE PINHO E JOSÉ ALBERTO OLIVEIRA MOURA FILHO
-
 package br.com.poli.melhorlig4;
 
 public class Jogador extends Pessoa {

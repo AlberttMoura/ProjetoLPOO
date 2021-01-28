@@ -28,12 +28,10 @@ public class Tabuleiro {
         for(int linha = gameArray.length - 1; linha >= 0; linha--){
             if(gameArray[linha][pos] == 0){
                 yPos = linha;
-                System.out.println("oi");
                 return yPos;//Retorna a LINHA em que a peça do jogador ficou
 
             }
         }
-        System.out.println("Oi");
         return -1;
     }
 
